@@ -1,0 +1,2 @@
+fastapi==0.115.0
+spotipy==2.24.0
