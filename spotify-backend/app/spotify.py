@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
+from fastapi import HTTPException
 
 def get_client_info():
     load_dotenv()
