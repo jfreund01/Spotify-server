@@ -19,9 +19,5 @@ async def get_queue():
 
 @router.post("/put_queue/")
 async def put_queue(track_id: str = Form(...)):
-    devices = sp.devices()
-    if not devices['devices'] and device_id is None:
-        return {"error": "No active devices found"}
-    
     sp.add_to_queue(uri=f"spotify:track:{track_id}")
     return {"message": f"Playing track with id: {track_id}"}
