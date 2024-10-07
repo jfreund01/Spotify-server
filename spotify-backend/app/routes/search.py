@@ -8,7 +8,7 @@ async def search_tracks(track_name: str):
     tracks = sp.search(q=track_name, limit=20, type='track')
     return [
         {
-            "id": idx + 1,
+            "id": track['id'],
             "title": track['name'],
             "artist": track['artists'][0]['name'],
             "album": track['album']['images'][0]['url'],

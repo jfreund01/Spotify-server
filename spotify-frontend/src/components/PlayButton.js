@@ -12,7 +12,11 @@ const PlayButton = ({ onPlay }) => {
   };
 
   return (
-    <button className='btn btn-success m-2' onClick={handlePlay}>
+    <button
+      className='btn btn-success m-2'
+      onClick={handlePlay}
+      style={{ width: "100px", height: "100px", marginRight: "15px" }}
+    >
       Play
     </button>
   );

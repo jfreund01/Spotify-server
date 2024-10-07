@@ -12,7 +12,11 @@ const PauseButton = ({ onPause }) => {
   };
 
   return (
-    <button className='btn btn-warning m-2' onClick={handlePause}>
+    <button
+      className='btn btn-warning m-2'
+      onClick={handlePause}
+      style={{ width: "100px", height: "100px", marginRight: "15px" }}
+    >
       Pause
     </button>
   );

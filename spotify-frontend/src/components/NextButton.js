@@ -11,7 +11,11 @@ const NextButton = () => {
   };
 
   return (
-    <button className='btn btn-primary m-2' onClick={handleNext}>
+    <button
+      className='btn btn-primary m-2'
+      onClick={handleNext}
+      style={{ width: "100px", height: "100px", marginRight: "15px" }}
+    >
       Next
     </button>
   );

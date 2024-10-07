@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SongCard from "./components/SongCard";
+import SearchSongCard from "./components/SearchSongCard";
 import PlayButton from "./components/PlayButton";
 import PauseButton from "./components/PauseButton";
 import NextButton from "./components/NextButton";
@@ -86,6 +87,30 @@ function App() {
     }
   };
 
+  const handleSearchPlay = async (song) => {
+    // Handle play action for searched songs
+    const form = new FormData();
+    form.append("track_id", song.id);
+    try {
+      await axios.post("http://127.0.0.1:8000/play_track_id/", form);
+      setIsPlaying(true); // Set the state to playing
+    } catch (error) {
+      console.error("Error playing the song:", error);
+    }
+  };
+
+  const handleQueue = async (song) => {
+    // Handle queue action
+    const form = new FormData();
+    form.append("track_id", song.id);
+    try {
+      await axios.post("http://127.0.0.1:8000/put_queue/", form);
+      setIsPlaying(true); // Set the state to playing
+    } catch (error) {
+      console.error("Error queuing the song:", error);
+    }
+  };
+
   const handlePause = async () => {
     // Handle pause action
     try {
@@ -147,7 +172,12 @@ function App() {
           {results.length > 0 ? (
             <div className='row'>
               {results.map((song) => (
-                <SongCard key={song.id} song={song} />
+                <SearchSongCard
+                  key={song.id}
+                  song={song}
+                  onPlay={handleSearchPlay}
+                  onQueue={handleQueue}
+                />
               ))}
             </div>
           ) : (

@@ -11,7 +11,11 @@ const PreviousButton = () => {
   };
 
   return (
-    <button className='btn btn-secondary m-2' onClick={handlePrevious}>
+    <button
+      className='btn btn-secondary m-2'
+      onClick={handlePrevious}
+      style={{ width: "100px", height: "100px", marginRight: "15px" }}
+    >
       Previous
     </button>
   );
