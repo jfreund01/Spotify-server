@@ -1,10 +1,11 @@
 import React from "react";
 import axios from "axios";
+import { apiURL } from "../config";
 
 const PlayButton = ({ onPlay }) => {
   const handlePlay = async () => {
     try {
-      await axios.post("http://127.0.0.1:8000/resume/");
+      await axios.post(`${apiURL}/resume/`);
       onPlay(); // Callback to update UI if needed
     } catch (error) {
       console.error("Error playing song:", error);

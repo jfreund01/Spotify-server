@@ -8,6 +8,7 @@ import NextButton from "./components/NextButton";
 import PreviousButton from "./components/PreviousButton";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { apiURL, wsURL } from "./config";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -18,7 +19,7 @@ function App() {
 
   // WebSocket for currently playing song
   useEffect(() => {
-    const ws = new WebSocket("ws://127.0.0.1:8000/ws");
+    const ws = new WebSocket(wsURL);
 
     ws.onmessage = (event) => {
       const songData = JSON.parse(event.data); // Assuming the WebSocket sends a full song object
@@ -38,7 +39,7 @@ function App() {
 
   // WebSocket for queue updates
   useEffect(() => {
-    const wsQueue = new WebSocket("ws://127.0.0.1:8000/ws/queue");
+    const wsQueue = new WebSocket(`${wsURL}/queue`);
 
     wsQueue.onmessage = (event) => {
       const queueData = JSON.parse(event.data); // Assuming the WebSocket sends the queue array
@@ -67,9 +68,7 @@ function App() {
 
     // Proceed with the API request if the query is not empty
     try {
-      const response = await axios.get(
-        `http://127.0.0.1:8000/search_tracks/${query}`
-      );
+      const response = await axios.get(`${apiURL}/search_tracks/${query}`);
       console.log(response.data);
       setResults(response.data);
     } catch (error) {
@@ -80,7 +79,7 @@ function App() {
   const handlePlay = async () => {
     // Handle play action
     try {
-      await axios.post("http://127.0.0.1:8000/resume/");
+      await axios.post(`${apiURL}/resume/`);
       setIsPlaying(true); // Set the state to playing
     } catch (error) {
       console.error("Error playing the song:", error);
@@ -92,7 +91,7 @@ function App() {
     const form = new FormData();
     form.append("track_id", song.id);
     try {
-      await axios.post("http://127.0.0.1:8000/play_track_id/", form);
+      await axios.post(`${apiURL}/play_track_id/`, form);
       setIsPlaying(true); // Set the state to playing
     } catch (error) {
       console.error("Error playing the song:", error);
@@ -104,7 +103,7 @@ function App() {
     const form = new FormData();
     form.append("track_id", song.id);
     try {
-      await axios.post("http://127.0.0.1:8000/put_queue/", form);
+      await axios.post(`${apiURL}/put_queue/`, form);
       setIsPlaying(true); // Set the state to playing
     } catch (error) {
       console.error("Error queuing the song:", error);
@@ -114,7 +113,7 @@ function App() {
   const handlePause = async () => {
     // Handle pause action
     try {
-      await axios.post("http://127.0.0.1:8000/pause/");
+      await axios.post(`${apiURL}/pause/`);
       setIsPlaying(false); // Set the state to paused
     } catch (error) {
       console.error("Error pausing the song:", error);

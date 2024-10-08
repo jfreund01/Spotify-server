@@ -1,10 +1,11 @@
 import React from "react";
 import axios from "axios";
+import { apiURL } from "../config";
 
 const PreviousButton = () => {
   const handlePrevious = async () => {
     try {
-      await axios.post("http://127.0.0.1:8000/skip_to_previous/");
+      await axios.post(`${apiURL}/skip_to_previous/`);
     } catch (error) {
       console.error("Error going to previous song:", error);
     }

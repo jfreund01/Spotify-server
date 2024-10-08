@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { apiURL } from "../config";
 
 function QueueSidebar() {
   const [queue, setQueue] = useState([]);
@@ -8,7 +9,7 @@ function QueueSidebar() {
     // Fetch the queue when the component mounts
     const fetchQueue = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/get_queue/");
+        const response = await axios.get(`${apiURL}/get_queue/`);
         setQueue(response.data);
       } catch (error) {
         console.error("Error fetching queue:", error);
