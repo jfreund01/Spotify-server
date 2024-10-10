@@ -187,7 +187,7 @@ function App() {
 
       {/* Queue Sidebar */}
       <div className='queue-sidebar'>
-        <h5>Current :</h5>
+        <h5>Current Queue:</h5>
         <ul className='list-unstyled'>
           {queue.length > 0 ? (
             queue.map((track, index) => (
