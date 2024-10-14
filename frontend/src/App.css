@@ -1,0 +1,162 @@
+body {
+  width: 80%;
+  background-color: #121212;
+  color: white;
+}
+
+h2 {
+  color: #1db954;
+  /* Spotify green */
+}
+
+.search-input {
+  background-color: #333;
+  color: white;
+  border: 1px solid #1db954;
+}
+
+.search-input::placeholder {
+  color: white;
+}
+
+.card {
+  background-color: #333;
+  border: none;
+  width: 18rem;
+  margin: 2rem;
+  height: 70%;
+
+}
+
+.card-title {
+  overflow: hidden;
+  color: #1db954;
+}
+
+.btn-primary {
+  background-color: #1db954;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #17a74a;
+}
+
+.card-text {
+  overflow: hidden;
+  color: white;
+}
+
+/* Sidebar styling */
+.queue-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  background-color: #121212;
+  padding: 10px;
+  border-left: 1px solid #121212;
+  overflow-y: auto;
+}
+
+.queue-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.queue-card {
+  display: flex;
+  align-items: center;
+}
+
+.queue-album-cover {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.queue-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.queue-title {
+  overflow: hidden;
+  font-weight: bold;
+  margin: 0;
+  white-space: nowrap;
+  /* Prevent text wrapping */
+  text-overflow: ellipsis;
+  /* Add ellipsis when text overflows */
+  width: 200px
+}
+
+/* Queue artist */
+.queue-artist {
+  width: 200px;
+  font-size: 0.8rem;
+  color: #666;
+  white-space: nowrap;
+  /* Prevent text wrapping */
+  overflow: hidden;
+  /* Hide overflowing text */
+  text-overflow: ellipsis;
+  /* Add ellipsis when text overflows */
+}
+
+/* Mobile layout adjustments */
+@media (max-width: 768px) {
+  body {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Only apply this for screens smaller than 768px */
+  .queue-sidebar {
+    position: relative;
+    /* Remove fixed positioning on mobile */
+    width: 100%;
+    background-color: #121212;
+    padding: 10px;
+    border-left: none;
+    box-shadow: none;
+    height: auto;
+    /* Let the height adjust based on content */
+  }
+
+  .queue-item {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+
+  .queue-album-cover {
+    width: 40px;
+    height: 40px;
+  }
+
+  .queue-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .queue-title {
+    padding-top: 15px;
+    width: 100%;
+    font-size: 0.9em;
+  }
+
+  .queue-artist {
+    width: 100%;
+    font-size: 0.9em;
+  }
+
+  /* Make sure the main container flows naturally with enough space */
+  .container {
+    padding-bottom: 10px;
+    /* Ensure padding to avoid the queue blocking content */
+  }
+}
