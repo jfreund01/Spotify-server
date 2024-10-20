@@ -1,5 +1,4 @@
 from fastapi import APIRouter, Form, HTTPException
-from spotipy.exceptions import SpotifyException
 from backend.spotify import sp
 
 router = APIRouter()

@@ -1,17 +1,8 @@
-import os
-from dotenv import load_dotenv
+
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyOAuth
 from fastapi import HTTPException
-
-def get_client_info():
-    load_dotenv()
-    CLIENT_ID = os.getenv("CLIENT_ID")
-    CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-    REDIRECT_URL = os.getenv("REDIRECT_URL")
-    if not CLIENT_ID or not CLIENT_SECRET or not REDIRECT_URL:
-        raise ValueError("Missing Spotify API credentials")
-    return CLIENT_ID, CLIENT_SECRET, REDIRECT_URL
+from backend.utils.client_info import get_client_info
 
 def create_spotify_app():
     CLIENT_ID, CLIENT_SECRET, REDIRECT_URL = get_client_info()
