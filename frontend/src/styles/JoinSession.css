@@ -1,0 +1,47 @@
+.join-session {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .session-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .session-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    transition: transform 0.2s;
+  }
+  
+  .session-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .session-card h3 {
+    margin-top: 0;
+  }
+  
+  .session-card button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1DB954;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .session-card button:hover {
+    background-color: #1ed760;
+  }
+  
+  .error {
+    color: red;
+    text-align: center;
+  }

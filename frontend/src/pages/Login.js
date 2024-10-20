@@ -49,16 +49,6 @@ function Login() {
             </button>
           </div>
         </form>
-        <div className='divider'>
-          <span>or</span>
-        </div>
-        <div className='social-login'>
-          <button className='social-button facebook'>
-            Continue with Facebook
-          </button>
-          <button className='social-button apple'>Continue with Apple</button>
-          <button className='social-button google'>Continue with Google</button>
-        </div>
       </main>
     </div>
   );

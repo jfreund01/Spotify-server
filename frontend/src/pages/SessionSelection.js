@@ -13,7 +13,7 @@ function SessionSelection() {
     // For now, we'll just log a message
     console.log("Join session clicked");
     // You can add navigation to a join session page later
-    // navigate('/join-session');
+    navigate("/join-session");
   };
 
   return (
