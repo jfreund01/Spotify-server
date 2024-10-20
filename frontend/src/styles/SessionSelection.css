@@ -1,0 +1,35 @@
+.session-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .session-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .host {
+    background-color: #1DB954;
+    color: white;
+  }
+  
+  .join {
+    background-color: #191414;
+    color: white;
+  }
+  
+  .session-button:hover {
+    opacity: 0.8;
+  }

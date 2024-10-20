@@ -1,5 +1,5 @@
 cd ~/spotify-server
-
+docker kill $(docker ps -q)
 cd backend
 
 docker build -t backend .
